@@ -1,8 +1,5 @@
-"use client";
-
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 const BlogIcon = ({ className }: { className?: string }) => (
   <svg
@@ -29,73 +26,30 @@ const BlogWizard = () => {
     <section className="bg-light-pink py-20 lg:py-24">
       <div className="container">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-          <motion.div 
-            className="lg:w-1/2 flex flex-col items-start"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div 
-              className="flex items-center gap-4 mb-5"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <BlogIcon className="text-primary-red h-11 w-11" />
-              </motion.div>
+          <div className="lg:w-1/2 flex flex-col items-start">
+            <div className="flex items-center gap-4 mb-5">
+              <BlogIcon className="text-primary-red h-11 w-11" />
               <h2 className="text-[32px] font-bold text-dark-gray">Blog Wizard</h2>
-            </motion.div>
-            <motion.p 
-              className="text-gray mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Antsq's marketing team specializes in google's search engine mechanisms and nuances, making the best use of platforms & tools like Google Ads, Google console, and Google analytics to find the best keywords for your business & brand with the highest probability of generating conversions. Our team will help you understand the requirements of your potential audience & key customers by focusing on marketing strategies.
-            </motion.p>
-            <motion.a
+            </div>
+            <p className="text-gray mb-8">
+              Antsq’s marketing team specializes in google’s search engine mechanisms and nuances, making the best use of platforms & tools like Google Ads, Google console, and Google analytics to find the best keywords for your business & brand with the highest probability of generating conversions. Our team will help you understand the requirements of your potential audience & key customers by focusing on marketing strategies.
+            </p>
+            <a
               href="#"
-              className="group bg-[#EF4444] text-white font-medium py-3 px-8 rounded-lg shadow-md hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
+              className="bg-[#EF4444] text-white font-medium py-3 px-8 rounded-lg shadow-md hover:bg-red-600 transition-colors duration-300"
             >
               Get Started
-            </motion.a>
-          </motion.div>
-          <motion.div 
-            className="lg:w-1/2 mt-8 lg:mt-0"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.div
-              whileHover={{ 
-                scale: 1.03,
-                y: -5,
-                transition: { duration: 0.3 }
-              }}
-            >
-              <Image
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1ad0bc08-9d6f-4ba4-a0c3-2be1b684f3ee/generated_images/professional-software-interface-mockup-f-e7bb7831-20250815085120.jpg"
-                alt="Screenshot of the Blog Wizard interface in AntsQ.AI"
-                width={1024}
-                height={499}
-                className="rounded-2xl shadow-card w-full h-auto hover:shadow-xl transition-shadow duration-300"
-              />
-            </motion.div>
-          </motion.div>
+            </a>
+          </div>
+          <div className="lg:w-1/2 mt-8 lg:mt-0">
+            <Image
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/1ad0bc08-9d6f-4ba4-a0c3-2be1b684f3ee-antsq-com/assets/images/Screenshot-2023-04-16-at-2.09.23-AM-e1681607781975-1024x499-7.png"
+              alt="Screenshot of the Blog Wizard interface in AntsQ.AI"
+              width={1024}
+              height={499}
+              className="rounded-2xl shadow-card w-full h-auto"
+            />
+          </div>
         </div>
       </div>
     </section>

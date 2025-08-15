@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { motion } from "framer-motion";
 
 const faqData = [
   {
@@ -49,24 +48,12 @@ const FAQ = () => {
   return (
     <section className="bg-light-pink py-20 lg:py-32">
       <div className="container mx-auto px-4">
-        <motion.p 
-          className="text-center text-primary-red font-bold text-lg mb-2"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <p className="text-center text-primary-red font-bold text-lg mb-2">
           FAQ
-        </motion.p>
-        <motion.h2 
-          className="text-center text-dark-gray text-4xl font-bold mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+        </p>
+        <h2 className="text-center text-dark-gray text-4xl font-bold mb-12">
           Frequently Asked Questions
-        </motion.h2>
+        </h2>
         <Accordion
           type="single"
           collapsible
@@ -74,28 +61,21 @@ const FAQ = () => {
           defaultValue="item-0"
         >
           {faqData.map((item, index) => (
-            <motion.div
+            <AccordionItem
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              value={`item-${index}`}
+              className="bg-[#FDECEC] border-none rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
             >
-              <AccordionItem
-                value={`item-${index}`}
-                className="bg-[#FDECEC] border-none rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-300"
+              <AccordionTrigger
+                className="group flex w-full items-center justify-between p-6 text-left text-lg font-bold text-dark-gray hover:no-underline [&>svg]:hidden"
               >
-                <AccordionTrigger
-                  className="group flex w-full items-center justify-between p-6 text-left text-lg font-bold text-dark-gray hover:no-underline hover:text-primary-red transition-colors duration-300 [&>svg]:hidden"
-                >
-                  <span className="pr-4">{item.question}</span>
-                  <PlusMinusIcon />
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6 pt-0 text-base text-gray">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            </motion.div>
+                <span className="pr-4">{item.question}</span>
+                <PlusMinusIcon />
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6 pt-0 text-base text-gray">
+                {item.answer}
+              </AccordionContent>
+            </AccordionItem>
           ))}
         </Accordion>
       </div>
